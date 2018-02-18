@@ -11,9 +11,13 @@ class InputGroup extends React.Component {
   )
   
   render() {
+    const children = React.Children.map(
+      this.props.children,
+      child => React.cloneElement(child, {}),
+    );
     return (
       <div style={{ display: 'flex', flexDirection: 'column', ...this.props.style }}>
-        {this.props.children}
+        {children}
       </div>
     );
   }
@@ -25,6 +29,7 @@ export default () => {
       <InputGroup style={{ margin: 10, width: 300 }}>
         <InputGroup.Label />
         <InputGroup.Input />
+        <label>yeahhh</label>
       </InputGroup>
     </div>
   );
